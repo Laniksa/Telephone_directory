@@ -19,6 +19,7 @@ public class Main {
     }
 
     public static void recordContact() {
+        scan = new Scanner(System.in);
 
         System.out.println("Введите имя контакта");
         String name = scan.nextLine();
@@ -42,6 +43,7 @@ public class Main {
             switch(num){
                 case 1:
                     recordContact();
+                    break;
                 case 2:
                     System.out.println("Запись контактов завершена");
                     return false;
