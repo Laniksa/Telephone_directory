@@ -8,39 +8,51 @@ public class Main {
     public static List<Contact> contacts = new ArrayList<>();
     public static Scanner scan;
 
-    public static void recordGroup(List<Contact> contacts) {
+    public static void recordGroup() {
         scan = new Scanner(System.in);
         System.out.println("Введите название группы");
         String group = scan.nextLine();
+        addContact();
 
         PhoneBook.note.put(group, contacts);
 
     }
 
-    public static boolean recordContact() {
-        while (true) {
-            System.out.println("Введите имя контакта");
-            String name = scan.nextLine();
-            System.out.println("Введите номер контакта");
-            int number = scan.nextInt();
+    public static void recordContact() {
 
-            contacts.add(new Contact(name, number));
+        System.out.println("Введите имя контакта");
+        String name = scan.nextLine();
+
+        System.out.println("Введите номер контакта");
+        int number = scan.nextInt();
+
+        contacts.add(new Contact(name, number));
+
+
+    }
+
+
+    public static boolean addContact() {
+        int num;
+        while (true) {
             System.out.println("Добавить еще один контакт?\n" +
-                    "1.Да" +
+                    "1.Да \n" +
                     "2.Нет");
-            int num = scan.nextInt();
-            if(num == 1){
-                return true;
-            }else{
-                System.out.println("Запись контактов завершена");
-                return false;
+            num = scan.nextInt();
+            switch(num){
+                case 1:
+                    recordContact();
+                case 2:
+                    System.out.println("Запись контактов завершена");
+                    return false;
+
             }
         }
-
     }
 
 
-    public static void main(String[] args) {
-        //record();
+        public static void main (String[]args){
+            recordGroup();
+
+        }
     }
-}
