@@ -1,11 +1,10 @@
 package com.company;
 
-public class PhoneBook {
-    private Contact contact;
-    private String group;
+import java.util.HashMap;
+import java.util.List;
 
-    public  PhoneBook(Contact contact, String group){
-        this.contact = contact;
-        this.group = group;
-    }
+
+public class PhoneBook {
+    public static HashMap<String, List<Contact>> note = new HashMap<>();
 }
+
