@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static List<Contact> contacts = new ArrayList<>();
@@ -40,12 +38,13 @@ public class Main {
                     "1.Да \n" +
                     "2.Нет");
             num = scan.nextInt();
-            switch(num){
+            switch (num) {
                 case 1:
                     recordContact();
                     break;
                 case 2:
                     System.out.println("Запись контактов завершена");
+
                     return false;
 
             }
@@ -53,8 +52,11 @@ public class Main {
     }
 
 
-        public static void main (String[]args){
-            recordGroup();
+    public static void main(String[] args) {
+        recordGroup();
+        for (Map.Entry<String, List<Contact>> item : PhoneBook.note.entrySet()) {
+            System.out.printf("Key: %s  Value: %s \n", item.getKey(), item.getValue());
 
         }
     }
+}
