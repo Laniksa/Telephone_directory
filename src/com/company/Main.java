@@ -51,6 +51,12 @@ public class Main {
         }
     }
 
+    public static void conclusionContact(){
+        for (Contact people : contacts){
+            System.out.println(people);
+        }
+    }
+
 
     public static void main(String[] args) {
         recordGroup();
