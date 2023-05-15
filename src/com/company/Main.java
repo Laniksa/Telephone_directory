@@ -3,20 +3,17 @@ package com.company;
 import java.util.*;
 
 public class Main {
-    public static List<Contact> contacts = new ArrayList<>();
+    public static ArrayList<Contact> contacts = new ArrayList<>();
     public static Scanner scan;
 
     public static void recordGroup() {
         scan = new Scanner(System.in);
         System.out.println("Введите название группы");
         String group = scan.nextLine();
-        addContact();
-
-        PhoneBook.note.put(group, contacts);
-
+        addPhoneBook(group, recordContact());
     }
 
-    public static void recordContact() {
+    public static ArrayList<Contact> recordContact() {
         scan = new Scanner(System.in);
 
         System.out.println("Введите имя контакта");
@@ -26,8 +23,15 @@ public class Main {
         int number = scan.nextInt();
 
         contacts.add(new Contact(name, number));
+        return contacts;
 
 
+    }
+
+    public static void addPhoneBook(String group, ArrayList<Contact> contact){
+        //PhoneBook phoneBook = new PhoneBook (group, (ArrayList<Contact>) contacts);
+        PhoneBook.note.put(group,contact);
+        printContactsGroups();
     }
 
 
@@ -57,12 +61,18 @@ public class Main {
         }
     }
 
+    public static void printContactsGroups() {
+        PhoneBook.note.forEach((key, value) -> System.out.println(key + " : " + value));
+    }
+
 
     public static void main(String[] args) {
         recordGroup();
-        for (Map.Entry<String, List<Contact>> item : PhoneBook.note.entrySet()) {
-            System.out.printf("Key: %s  Value: %s \n", item.getKey(), item.getValue());
+        //conclusionContact();
+       // printContactsGroups();
+
+
 
         }
     }
-}
+
