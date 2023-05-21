@@ -15,7 +15,7 @@ public class Main {
         addPhoneBook(group, recordContact());
     }
 
-    public static String recordContact() {
+    public static ArrayList<Contact> recordContact() {
 
         int num = 0;
         while (num !=2) {
@@ -32,14 +32,14 @@ public class Main {
         }
         System.out.println("Запись контактов завершена!");
 
-        return contacts.toString();
+        return contacts;
 
 
     }
 
-    public static void addPhoneBook(String group, ArrayList<Contact> contact){
+    public static void addPhoneBook(String group, ArrayList<Contact> contacts){
         //PhoneBook phoneBook = new PhoneBook (group, (ArrayList<Contact>) contacts);
-        PhoneBook.note.put(group,contact);
+        PhoneBook.note.put(group,contacts);
         printContactsGroups();
     }
 
@@ -63,23 +63,23 @@ public class Main {
 //            }
 //        }
 //    }
-
-    public static void conclusionContact(){
-        for (Contact people : contacts){
-            System.out.println(people);
-        }
-    }
-
+//
+//    public static void conclusionContact(){
+//        for (Contact people : contacts){
+//            System.out.println(people);
+//        }
+//    }
+//
     public static void printContactsGroups() {
-        PhoneBook.note.forEach((key, value) -> System.out.println(key + " : " + value));
+        PhoneBook.note.forEach((key, value) -> System.out.println(key + " : " + value.toString()));
     }
 
 
     public static void main(String[] args) {
-        //recordGroup();
+        recordGroup();
         //conclusionContact();
        // printContactsGroups();
-        recordContact();
+//        recordContact();
 
 
 
