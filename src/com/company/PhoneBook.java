@@ -21,10 +21,11 @@ public class PhoneBook {
             scan = new Scanner(System.in);
             System.out.println("Введите название группы");
             String group = scan.nextLine();
-            note.put(group, recordContact());//почему-то не работает
+            new PhoneBook(group, recordContact());//почему-то не работает
             System.out.println("Добавить еще одну группу с контактами?\n 1.Да \n 2.Нет");
+            num = scan.nextInt();
         }
-        //PhoneBook.note.toString();
+        note.toString();
 
     }
 
