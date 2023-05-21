@@ -1,5 +1,7 @@
 package com.company;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 
 public class Main {
@@ -13,17 +15,24 @@ public class Main {
         addPhoneBook(group, recordContact());
     }
 
-    public static ArrayList<Contact> recordContact() {
-        scan = new Scanner(System.in);
+    public static String recordContact() {
 
-        System.out.println("Введите имя контакта");
-        String name = scan.nextLine();
+        int num = 0;
+        while (num !=2) {
+            scan = new Scanner(System.in);
+            System.out.println("Введите имя контакта");
+            String name = scan.nextLine();
 
-        System.out.println("Введите номер контакта");
-        int number = scan.nextInt();
+            System.out.println("Введите номер контакта");
+            int number = scan.nextInt();
 
-        contacts.add(new Contact(name, number));
-        return contacts;
+            contacts.add(new Contact(name, number));
+            System.out.println(contacts.toString() + " записан.\n Добавить еще один контакт? \n 1.Да\n 2.Нет");
+            num = scan.nextInt();
+        }
+        System.out.println("Запись контактов завершена!");
+
+        return contacts.toString();
 
 
     }
@@ -35,25 +44,25 @@ public class Main {
     }
 
 
-    public static boolean addContact() {
-        int num;
-        while (true) {
-            System.out.println("Добавить еще один контакт?\n" +
-                    "1.Да \n" +
-                    "2.Нет");
-            num = scan.nextInt();
-            switch (num) {
-                case 1:
-                    recordContact();
-                    break;
-                case 2:
-                    System.out.println("Запись контактов завершена");
-
-                    return false;
-
-            }
-        }
-    }
+//    public static boolean addContact() {
+//        int num;
+//        while (true) {
+//            System.out.println("Добавить еще один контакт?\n" +
+//                    "1.Да \n" +
+//                    "2.Нет");
+//            num = scan.nextInt();
+//            switch (num) {
+//                case 1:
+//                    recordContact();
+//                    break;
+//                case 2:
+//                    System.out.println("Запись контактов завершена");
+//
+//                    return false;
+//
+//            }
+//        }
+//    }
 
     public static void conclusionContact(){
         for (Contact people : contacts){
@@ -67,9 +76,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        recordGroup();
+        //recordGroup();
         //conclusionContact();
        // printContactsGroups();
+        recordContact();
 
 
 

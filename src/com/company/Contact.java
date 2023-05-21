@@ -9,4 +9,11 @@ public Contact(String name, int number){
     this.number = number;
 
 }
+
+    @Override
+    public String toString() {
+        return "Контакт: " +
+                "Имя " + name + '\'' +
+                "Номер =" + number;
+    }
 }
