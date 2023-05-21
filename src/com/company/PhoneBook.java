@@ -21,15 +21,16 @@ public class PhoneBook {
             scan = new Scanner(System.in);
             System.out.println("Введите название группы");
             String group = scan.nextLine();
-            new PhoneBook(group, recordContact());//почему-то не работает
+            new PhoneBook(group, recordContact(group));
+
             System.out.println("Добавить еще одну группу с контактами?\n 1.Да \n 2.Нет");
             num = scan.nextInt();
         }
-        note.toString();
+        System.out.println( note.toString());
 
     }
 
-    public static ArrayList<Contact> recordContact() {
+    public static ArrayList<Contact> recordContact(String group) {
 
         int num = 0;
         while (num !=2) {
@@ -41,9 +42,10 @@ public class PhoneBook {
             int number = scan.nextInt();
 
             contacts.add(new Contact(name, number));
-            System.out.println(contacts.toString() + " записан.\n Добавить еще один контакт? \n 1.Да\n 2.Нет");
+            System.out.println(contacts.toString() + " записан.\n Добавить еще один контакт в группу " + group + "? \n 1.Да\n 2.Нет");
             num = scan.nextInt();
         }
+
         System.out.println("Запись контактов завершена!");
 
         return contacts;
@@ -54,7 +56,7 @@ public class PhoneBook {
 
     @Override
     public String toString() {
-        return note.toString();
+        return super.toString();
     }
 }
 

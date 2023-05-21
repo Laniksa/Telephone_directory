@@ -14,6 +14,6 @@ public Contact(String name, int number){
     public String toString() {
         return "Контакт: " +
                 "Имя " + name + '\'' +
-                "Номер =" + number;
+                "Номер =" + number+'\n';
     }
 }
