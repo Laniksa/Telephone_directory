@@ -16,17 +16,14 @@ public class PhoneBook {
     }
 
     public static void recordGroup() {
-        int num = 0;
-        while (num != 2){
+
+
             scan = new Scanner(System.in);
             System.out.println("Введите название группы");
             String group = scan.nextLine();
-            new PhoneBook(group, recordContact(group));
+           new PhoneBook(group, recordContact(group));
 
-            System.out.println("Добавить еще одну группу с контактами?\n 1.Да \n 2.Нет");
-            num = scan.nextInt();
-        }
-        System.out.println( note.toString());
+
 
     }
 
@@ -51,6 +48,16 @@ public class PhoneBook {
         return contacts;
 
 
+    }
+
+    public static void record (){
+        int num = 0;
+        while (num !=2){
+            recordGroup();
+            System.out.println("Добавить еще одну группу с контактами?\n 1.Да \n 2.Нет");
+            num = scan.nextInt();
+        }
+        System.out.println( note.toString());
     }
 
 
