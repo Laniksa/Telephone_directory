@@ -16,21 +16,16 @@ public class PhoneBook {
     }
 
     public static void recordGroup() {
-
-
             scan = new Scanner(System.in);
             System.out.println("Введите название группы");
             String group = scan.nextLine();
-           new PhoneBook(group, recordContact(group));
-
-
+            new PhoneBook(group, recordContact(group));
 
     }
 
     public static ArrayList<Contact> recordContact(String group) {
 
-        int num = 0;
-        while (num !=2) {
+
             scan = new Scanner(System.in);
             System.out.println("Введите имя контакта");
             String name = scan.nextLine();
@@ -39,11 +34,6 @@ public class PhoneBook {
             int number = scan.nextInt();
 
             contacts.add(new Contact(name, number));
-            System.out.println(contacts.toString() + " записан.\n Добавить еще один контакт в группу " + group + "? \n 1.Да\n 2.Нет");
-            num = scan.nextInt();
-        }
-
-        System.out.println("Запись контактов завершена!");
 
         return contacts;
 
