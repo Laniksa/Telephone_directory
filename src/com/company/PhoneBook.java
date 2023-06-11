@@ -6,48 +6,34 @@ import java.util.Scanner;
 
 
 public class PhoneBook {
-    public static HashMap<String, ArrayList<Contact>> note;
+    public static HashMap<String, ArrayList<Contact>> phoneBook;
     public static ArrayList<Contact> contacts = new ArrayList<>();
     public static Scanner scan;
 
     public PhoneBook(String group, ArrayList<Contact> contacts){
-        note = new HashMap<>();
-        note.put(group, contacts);
+        phoneBook = new HashMap<>();
+        phoneBook.put(group, contacts);
     }
 
-    public static void recordGroup() {
+    public static void recordGroup() { // Создаем группу без контактов
             scan = new Scanner(System.in);
             System.out.println("Введите название группы");
             String group = scan.nextLine();
-            new PhoneBook(group, recordContact(group));
-
+            new PhoneBook(group, null);
+    }
+    public static void printAllGroups(){          // печатаем все ключи
+        System.out.println(phoneBook.keySet());
     }
 
-    public static ArrayList<Contact> recordContact(String group) {
+    public static void recordingContactInDifferentGroups(String group, Contact contact){
+        if(phoneBook.containsKey(group)){
+            phoneBook.get(group).add(contact);// get возвращает значение ключа, т.е наш ArrayList<Contact> contacts
+        }else {
+            ArrayList<Contact> contacts = new ArrayList<>();
+            contacts.add(contact);
+            phoneBook.put(group,contacts);
 
-
-            scan = new Scanner(System.in);
-            System.out.println("Введите имя контакта");
-            String name = scan.nextLine();
-
-            System.out.println("Введите номер контакта");
-            int number = scan.nextInt();
-
-            contacts.add(new Contact(name, number));
-
-        return contacts;
-
-
-    }
-
-    public static void record (){
-        int num = 0;
-        while (num !=2){
-            recordGroup();
-            System.out.println("Добавить еще одну группу с контактами?\n 1.Да \n 2.Нет");
-            num = scan.nextInt();
         }
-        System.out.println( note.toString());
     }
 
 
