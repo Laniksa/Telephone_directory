@@ -1,21 +1,20 @@
 package com.company;
 
 public class Contact {
-private String name;
-private int number;
+private final String name;
+private final int number;
 
 
-public Contact(String name, int number){
-    this.name = name;
-    this.number = number;
-    //PhoneBook.contacts.add(new Contact(name, number));
+    public Contact(String name, int number) {
+        this.name = name;
+        this.number = number;
+    }
 
-}
+    public String getName() {
+        return name;
+    }
 
-    @Override
-    public String toString() {
-        return "Контакт: " +
-                "Имя " + name + '\'' +
-                "Номер =" + number+'\n';
+    public int getNumber() {
+        return number;
     }
 }
